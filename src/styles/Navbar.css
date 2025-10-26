@@ -1,0 +1,139 @@
+/* === STICKY NAVBAR CONTAINER === */
+.navbar-container {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #f7f5f2;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e0e0e0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  margin: 0 auto;
+  max-width: 1400px;
+}
+
+/* === LOGO - UPDATED === */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo-image {
+  height: 70px; /* Bigger logo */
+  width: auto;
+  object-fit: contain;
+  margin-left: 50px;
+}
+
+/* === NAV LINKS - UPDATED === */
+.navbar-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+  flex-grow: 1;
+  justify-content: center;
+  margin-left: 20px; /* Fixed 20px gap from logo */
+  margin-right: 20px; /* Fixed 20px gap to icons */
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: color 0.2s ease-in-out;
+  white-space: nowrap;
+}
+
+.navbar-links a:hover {
+  color: #888;
+}
+
+/* === ICONS - UPDATED === */
+.navbar-icons {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-shrink: 0;
+  margin-left: 60px; /* Fixed 20px gap from nav links */
+}
+
+.navbar-icons a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.3rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.navbar-icons a:hover {
+  color: #888;
+}
+
+/* Cart Badge Styling */
+.cart-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: #444;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+  }
+  
+  .navbar {
+    justify-content: space-between;
+    padding: 0 1rem;
+  }
+  
+  .navbar-logo {
+    margin-right: 0;
+    flex-grow: 1;
+  }
+  
+  .navbar-icons {
+    margin-left: 0;
+    gap: 1rem;
+  }
+  
+  .logo-image {
+    height: 40px; /* Slightly smaller on mobile */
+  }
+}
+
+/* Ensure consistent spacing on larger screens */
+@media (min-width: 1400px) {
+  .navbar {
+    padding: 0 calc((100vw - 1400px) / 2);
+  }
+}
