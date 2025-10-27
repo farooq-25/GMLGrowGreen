@@ -44,9 +44,6 @@ const ProductCard = ({ image, title, price }) => {
     <div 
       ref={cardRef}
       className={`product-card ${isVisible ? 'animate-in' : ''}`}
-      style={{
-        animationDelay: isVisible ? '0s' : '0s'
-      }}
     >
       <div className="product-image-container">
         <img src={image} alt={title} className="product-image" />
