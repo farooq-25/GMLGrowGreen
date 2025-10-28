@@ -1,4 +1,3 @@
-/* src/styles/Stepper.css */
 .stepper-wrapper {
   display: flex;
   align-items: center;
@@ -6,14 +5,15 @@
   width: 100%;
   max-width: 500px;
   margin-bottom: 2rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 7rem;
 }
 
 .stepper-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #a0aec0; /* inactive color */
+  color: #a0aec0;
   position: relative;
   z-index: 1;
 }
@@ -22,7 +22,7 @@
   height: 40px;
   width: 40px;
   border-radius: 50%;
-  border: 2px solid #a0aec0; /* inactive border */
+  border: 2px solid #a0aec0;
   background-color: #fff;
   display: flex;
   align-items: center;
@@ -39,17 +39,15 @@
   transition: all 0.3s ease;
 }
 
-/* Line between steps */
 .stepper-line {
   flex-grow: 1;
   height: 2px;
-  background-color: #a0aec0; /* inactive line */
-  margin-bottom: 2.2rem; /* Aligns with center of circles */
+  background-color: #a0aec0;
+  margin-bottom: 2.2rem;
 }
 
-/* Active State */
 .stepper-item.active .step-counter {
-  border-color: #3182ce; /* blue */
+  border-color: #3182ce;
   background-color: #3182ce;
   color: #fff;
   font-size: 1.2rem;
@@ -60,9 +58,8 @@
   font-weight: 600;
 }
 
-/* Completed State */
 .stepper-item.completed .step-counter {
-  border-color: #31a24c; /* green */
+  border-color: #31a24c;
   background-color: #31a24c;
   color: #fff;
   font-size: 1.2rem;
@@ -73,5 +70,5 @@
 }
 
 .stepper-item.completed + .stepper-line {
-  background-color: #31a24c; /* green line */
+  background-color: #31a24c;
 }

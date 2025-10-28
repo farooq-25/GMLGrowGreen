@@ -456,7 +456,7 @@
 
 /* ADDED: Style for Lucide icons */
 .shipping-icon {
-  width: 2.25rem;  /* 36px */
+  width: 2.25rem; /* 36px */
   height: 2.25rem; /* 36px */
   flex-shrink: 0;
   color: #313840;
@@ -495,16 +495,16 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .main-image {
     min-height: 400px;
     padding: 2rem;
   }
-  
+
   .product-detail-image {
     max-height: 300px;
   }
-  
+
   .product-features ul {
     grid-template-columns: 1fr;
   }
@@ -514,37 +514,37 @@
   .product-details-container {
     padding: 1rem;
   }
-  
+
   .product-title {
     font-size: 1.75rem;
   }
-  
+
   .product-price {
     font-size: 1.5rem;
   }
-  
+
   .action-buttons {
     flex-direction: column;
   }
-  
+
   .buy-now-btn,
   .add-to-cart-btn {
     width: 100%;
   }
-  
+
   .specs-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .main-image {
     min-height: 300px;
     padding: 1.5rem;
   }
-  
+
   .product-detail-image {
     max-height: 250px;
   }
-  
+
   .shipping-features {
     grid-template-columns: 1fr;
   }
@@ -554,21 +554,21 @@
   .image-thumbnails {
     flex-wrap: wrap;
   }
-  
+
   .thumbnail {
     width: 60px;
     height: 60px;
   }
-  
+
   .quantity-selector {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .size-options {
     justify-content: center;
   }
-  
+
   .price-section {
     flex-direction: column;
     align-items: flex-start;

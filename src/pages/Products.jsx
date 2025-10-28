@@ -1,6 +1,6 @@
-import React from 'react';
-import Navbar from '../components/Navbar';
-import ProductGrid from '../components/ProductGrid';
+import React from "react";
+import Navbar from "../components/Navbar";
+import ProductGrid from "../components/ProductGrid";
 
 function Products() {
   return (
@@ -14,4 +14,3 @@ function Products() {
 }
 
 export default Products;
-

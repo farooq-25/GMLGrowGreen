@@ -1,8 +1,16 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Trash2, Plus, Minus, ShoppingBag, ArrowLeft, X, AlertTriangle } from 'lucide-react';
-import { useCart } from '../context/CartContext';
-import '../styles/Cart.css';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  Trash2,
+  Plus,
+  Minus,
+  ShoppingBag,
+  ArrowLeft,
+  X,
+  AlertTriangle,
+} from "lucide-react";
+import { useCart } from "../context/CartContext";
+import "../styles/Cart.css";
 
 const Cart = () => {
   const { state, dispatch } = useCart();
@@ -14,8 +22,8 @@ const Cart = () => {
   const handleQuantityChange = (id, newQuantity) => {
     if (newQuantity < 1) return;
     dispatch({
-      type: 'UPDATE_QUANTITY',
-      payload: { id, quantity: newQuantity }
+      type: "UPDATE_QUANTITY",
+      payload: { id, quantity: newQuantity },
     });
   };
 
@@ -26,7 +34,7 @@ const Cart = () => {
 
   const confirmRemove = () => {
     if (itemToRemove) {
-      dispatch({ type: 'REMOVE_ITEM', payload: { id: itemToRemove.id } });
+      dispatch({ type: "REMOVE_ITEM", payload: { id: itemToRemove.id } });
     }
     setShowRemoveDialog(false);
     setItemToRemove(null);
@@ -38,11 +46,14 @@ const Cart = () => {
   };
 
   const calculateSubtotal = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    return cartItems.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
   };
 
   const subtotal = calculateSubtotal();
-  const shipping = subtotal > 0 ? 5.00 : 0;
+  const shipping = subtotal > 0 ? 5.0 : 0;
   const total = subtotal + shipping;
 
   const handleCheckout = () => {
@@ -50,7 +61,7 @@ const Cart = () => {
       alert("Your cart is empty!");
       return;
     }
-    navigate('/checkout');
+    navigate("/checkout");
   };
 
   return (
@@ -68,15 +79,19 @@ const Cart = () => {
                 <X size={20} />
               </button>
             </div>
-            
+
             <div className="dialog-content">
               <p>Are you sure you want to remove this item from your cart?</p>
               <div className="item-preview">
                 <img src={itemToRemove.image} alt={itemToRemove.name} />
                 <div className="item-preview-details">
                   <span className="item-name">{itemToRemove.name}</span>
-                  {itemToRemove.size && <span className="item-size">Size: {itemToRemove.size}</span>}
-                  <span className="item-price">₹{itemToRemove.price.toFixed(2)} × {itemToRemove.quantity}</span>
+                  {itemToRemove.size && (
+                    <span className="item-size">Size: {itemToRemove.size}</span>
+                  )}
+                  <span className="item-price">
+                    ₹{itemToRemove.price.toFixed(2)} × {itemToRemove.quantity}
+                  </span>
                 </div>
               </div>
             </div>
@@ -139,34 +154,42 @@ const Cart = () => {
                 <span>Quantity</span>
                 <span>Total</span>
               </div>
-              
+
               <div className="cart-items">
                 {cartItems.map((item) => (
                   <div key={item.id} className="cart-item">
                     <div className="item-info">
-                      <img 
-                        src={item.image} 
-                        alt={item.name} 
-                        className="item-image" 
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="item-image"
                       />
                       <div className="item-details">
                         <h3 className="item-name">{item.name}</h3>
-                        {item.size && <span className="item-size">Size: {item.size}</span>}
+                        {item.size && (
+                          <span className="item-size">Size: {item.size}</span>
+                        )}
                         <p className="item-price">₹{item.price.toFixed(2)}</p>
-                        
+
                         {/* Mobile Quantity Controls */}
                         <div className="mobile-quantity-controls">
                           <div className="quantity-controls">
-                            <button 
-                              onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
+                            <button
+                              onClick={() =>
+                                handleQuantityChange(item.id, item.quantity - 1)
+                              }
                               className="quantity-btn"
                               disabled={item.quantity <= 1}
                             >
                               <Minus size={14} />
                             </button>
-                            <span className="quantity-display">{item.quantity}</span>
-                            <button 
-                              onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
+                            <span className="quantity-display">
+                              {item.quantity}
+                            </span>
+                            <button
+                              onClick={() =>
+                                handleQuantityChange(item.id, item.quantity + 1)
+                              }
                               className="quantity-btn"
                             >
                               <Plus size={14} />
@@ -182,16 +205,22 @@ const Cart = () => {
                     {/* Desktop Quantity Controls */}
                     <div className="quantity-section">
                       <div className="quantity-controls">
-                        <button 
-                          onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
+                        <button
+                          onClick={() =>
+                            handleQuantityChange(item.id, item.quantity - 1)
+                          }
                           className="quantity-btn"
                           disabled={item.quantity <= 1}
                         >
                           <Minus size={14} />
                         </button>
-                        <span className="quantity-display">{item.quantity}</span>
-                        <button 
-                          onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
+                        <span className="quantity-display">
+                          {item.quantity}
+                        </span>
+                        <button
+                          onClick={() =>
+                            handleQuantityChange(item.id, item.quantity + 1)
+                          }
                           className="quantity-btn"
                         >
                           <Plus size={14} />
@@ -204,7 +233,7 @@ const Cart = () => {
                       <span className="item-total">
                         ₹{(item.price * item.quantity).toFixed(2)}
                       </span>
-                      <button 
+                      <button
                         onClick={() => handleRemoveClick(item)}
                         className="remove-btn"
                         aria-label="Remove item"
@@ -214,7 +243,7 @@ const Cart = () => {
                     </div>
 
                     {/* Mobile Remove Button */}
-                    <button 
+                    <button
                       onClick={() => handleRemoveClick(item)}
                       className="mobile-remove-btn"
                       aria-label="Remove item"
@@ -235,7 +264,7 @@ const Cart = () => {
               </div>
               <div className="summary-line">
                 <span>Shipping</span>
-                <span>{shipping > 0 ? `₹${shipping.toFixed(2)}` : 'Free'}</span>
+                <span>{shipping > 0 ? `₹${shipping.toFixed(2)}` : "Free"}</span>
               </div>
               <div className="summary-total">
                 <span>Total</span>

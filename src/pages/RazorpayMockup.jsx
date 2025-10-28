@@ -2,32 +2,28 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Stepper from "../components/Stepper";
-import { Lock } from "lucide-react"; // Changed from Zap
+import { Lock } from "lucide-react";
 import "../styles/RazorpayMockup.css";
 import { SiGooglepay, SiApplepay, SiPaytm } from "react-icons/si";
-// Make sure BiRupee is imported if you use it (not used in this final version)
-// import { BiRupee } from "react-icons/bi";
 import AnimatedPayButton from "../components/AnimatedPayButton";
-import PaymentProcessingAnimation from '../components/PaymentProcessingAnimation'; // Import the animation component
+import PaymentProcessingAnimation from "../components/PaymentProcessingAnimation";
 
 const RazorpayMockup = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [paymentMethod, setPaymentMethod] = useState("upi"); // To manage active tab
+  const [paymentMethod, setPaymentMethod] = useState("upi");
   const navigate = useNavigate();
 
   const handlePayment = () => {
-    setIsLoading(true); // Start loading animation
+    setIsLoading(true);
     setTimeout(() => {
-      // In a real app, you'd wait for a response from the backend/payment gateway
-      setIsLoading(false); // Stop loading (optional, as we navigate away)
-      navigate("/success"); // Navigate to success page
-    }, 2000); // Simulate processing time (2 seconds)
+      setIsLoading(false);
+      navigate("/success");
+    }, 2000);
   };
 
   return (
     <div className="payment-page-container">
       <Stepper activeStep={2} />
-
       {/* Conditional Rendering: Show Animation or Payment Form */}
       {isLoading ? (
         <PaymentProcessingAnimation /> // Show the animation component when loading
@@ -182,7 +178,8 @@ const RazorpayMockup = () => {
             <span>This is a secure, encrypted payment.</span>
           </div>
         </div>
-      )} {/* End of conditional rendering */}
+      )}{" "}
+      {/* End of conditional rendering */}
     </div>
   );
 };

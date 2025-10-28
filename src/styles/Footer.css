@@ -1,5 +1,5 @@
 .footer-main {
-  background: #3D5A3C;
+  background: #3d5a3c;
   color: #ffffff;
   margin-top: auto;
 }
@@ -14,7 +14,6 @@
   align-items: start;
 }
 
-/* Logo Section */
 .footer-logo-section {
   display: flex;
   flex-direction: column;
@@ -35,7 +34,6 @@
   margin-left: 37%;
 }
 
-/* Footer Sections */
 .footer-section {
   display: flex;
   flex-direction: column;
@@ -62,7 +60,6 @@
   display: block;
 }
 
-/* Footer Headings */
 .footer-heading {
   font-size: 1.1rem;
   font-weight: 600;
@@ -73,7 +70,6 @@
   justify-content: space-between;
 }
 
-/* Contact Information */
 .footer-contact-info {
   display: flex;
   flex-direction: column;
@@ -105,7 +101,6 @@
   color: #e2e8f0;
 }
 
-/* Quick Links */
 .footer-nav {
   list-style: none;
   padding: 0;
@@ -128,7 +123,6 @@
   color: #48bb78;
 }
 
-/* Social Media */
 .footer-social-icons {
   display: flex;
   gap: 0.75rem;
@@ -157,7 +151,6 @@
   height: 20px;
 }
 
-/* Footer Bottom */
 .footer-bottom-section {
   border-top: 1px solid #4a5568;
   padding: 1.5rem 0;
@@ -195,7 +188,6 @@
   color: #48bb78;
 }
 
-/* Mobile-First Responsive Design */
 @media (max-width: 1024px) {
   .footer-main-container {
     grid-template-columns: 1fr 1fr;
@@ -245,7 +237,6 @@
     margin-bottom: 0;
   }
 
-  /* Logo section stays open */
   .footer-logo-section {
     padding-bottom: 1.5rem;
     border-bottom: 1px solid #4a5568;
@@ -255,7 +246,6 @@
     height: 50px;
   }
 
-  /* Mobile social icons */
   .mobile-only {
     display: flex;
   }
@@ -349,7 +339,6 @@
   }
 }
 
-/* Utility classes */
 .mobile-only {
   display: none;
 }
@@ -362,19 +351,18 @@
   .mobile-only {
     display: flex;
   }
-  
+
   .desktop-only {
     display: none;
   }
 }
 
-/* Safe area support for mobile devices */
-@supports(padding: max(0px)) {
+@supports (padding: max(0px)) {
   .footer-main-container {
     padding-left: max(1rem, env(safe-area-inset-left));
     padding-right: max(1rem, env(safe-area-inset-right));
   }
-  
+
   .footer-bottom-container {
     padding-left: max(1rem, env(safe-area-inset-left));
     padding-right: max(1rem, env(safe-area-inset-right));

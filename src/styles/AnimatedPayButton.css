@@ -24,7 +24,7 @@
 
 /* Disabled state for the button */
 .pay-btn:disabled {
-  background-color: #a0aec0; 
+  background-color: #a0aec0;
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
@@ -114,10 +114,7 @@
 
 .btn-text {
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
 @keyframes iconRotate {

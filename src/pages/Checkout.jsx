@@ -1,34 +1,34 @@
 // src/pages/Checkout.jsx
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Stepper from '../components/Stepper'; // <-- IMPORT
-import '../styles/Checkout.css'; 
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Stepper from "../components/Stepper";
+import "../styles/Checkout.css";
 
 const Checkout = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    address: '',
-    city: '',
-    pincode: '',
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+    city: "",
+    pincode: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form Data:', formData);
-    navigate('/payment');
+    console.log("Form Data:", formData);
+    navigate("/payment");
   };
 
   return (
     <div className="checkout-container">
-      <Stepper activeStep={1} /> {/* <-- ADD THIS COMPONENT */}
+      <Stepper activeStep={1} />
       <div className="checkout-box">
         <h2>Shipping Details</h2>
         <p>Please enter your shipping information.</p>
@@ -44,7 +44,7 @@ const Checkout = () => {
               required
             />
           </div>
-          
+
           <div className="form-group-row">
             <div className="form-group">
               <label htmlFor="email">Email Address</label>
@@ -106,7 +106,7 @@ const Checkout = () => {
               />
             </div>
           </div>
-          
+
           <button type="submit" className="proceed-btn">
             Proceed to Payment
           </button>

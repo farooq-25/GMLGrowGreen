@@ -2,15 +2,15 @@
 import React, { useState, useEffect } from 'react';
 import { FiUser, FiShoppingCart, FiMenu, FiX } from 'react-icons/fi';
 import { Link, useLocation } from 'react-router-dom';
-import { useCart } from '../context/CartContext'; // <-- 1. IMPORT useCart
+import { useCart } from '../context/CartContext'; 
 import logo from '../assets/images/logo.png';
 import '../styles/Navbar.css';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { state } = useCart(); // <-- 2. GET cart state
-  const { items: cartItems } = state; // Extract items array
+  const { state } = useCart(); 
+  const { items: cartItems } = state; 
   const location = useLocation();
 
   // --- 3. Calculate total items ---
@@ -36,6 +36,7 @@ const Navbar = () => {
   const navLinks = [
     { path: '/', label: 'HOME' },
     { path: '/products', label: 'SHOP' },
+
     { path: '/about', label: 'ABOUT US' },
     { path: '/contact', label: 'CONTACT' }
   ];
@@ -43,14 +44,14 @@ const Navbar = () => {
   return (
     <header className={`navbar-container ${isScrolled ? 'scrolled' : ''}`}>
       <nav className="navbar">
-        {/* Logo */}
+        
         <div className="navbar-logo">
           <Link to="/">
-            <img src={logo} alt="GML Grow Green" className="logo-image" />
+            <img src={logo} alt="GML Grow Green Logo" className="logo-image" />
           </Link>
         </div>
 
-        {/* Desktop Navigation Links */}
+        
         <ul className="navbar-links">
           {navLinks.map((link) => (
             <li key={link.path}>
@@ -64,23 +65,23 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Icons */}
+        
         <div className="navbar-icons">
           <Link to="/account" aria-label="Account" className="icon-link">
-            <FiUser size={20}/>
+            <FiUser />
           </Link>
           <Link to="/cart" aria-label="View cart" className="icon-link">
             <div className="cart-icon-wrapper">
-              <FiShoppingCart size={20}/>
-              {/* --- 4. UPDATE Cart Counter --- */}
+              <FiShoppingCart />
+              
               {totalItems > 0 && (
-                <span className="cart-counter">{totalItems}</span>
+                <span className="cart-badge">{totalItems}</span>
               )}
-              {/* --- END Update --- */}
+              
             </div>
           </Link>
 
-          {/* Mobile Menu Button */}
+          
           <button
             className="mobile-menu-button"
             onClick={toggleMenu}
@@ -90,7 +91,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu Overlay */}
+        
         <div className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
           <div className="mobile-menu-content">
             {navLinks.map((link) => (
@@ -111,11 +112,11 @@ const Navbar = () => {
               <Link to="/cart" className="mobile-icon-link">
                 <FiShoppingCart />
                 <span>Cart</span>
-                {/* --- 5. UPDATE Mobile Cart Counter --- */}
+                
                 {totalItems > 0 && (
                   <span className="mobile-cart-counter">{totalItems}</span>
                 )}
-                {/* --- END Update --- */}
+                
               </Link>
             </div>
           </div>

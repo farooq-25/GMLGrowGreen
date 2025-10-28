@@ -1,5 +1,5 @@
 /* ProductGrid.module.css */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 
 .productGridContainer {
   width: 100%;
@@ -9,7 +9,7 @@
   box-sizing: border-box;
   background-color: #ffffff;
   position: relative;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .productGridHeader {
@@ -28,7 +28,7 @@
   font-size: 0.8rem;
   color: #888;
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .productGridHeader h1 {
@@ -38,7 +38,7 @@
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .facetsWrapper {
@@ -51,7 +51,7 @@
   font-size: 0.9rem;
   color: #555;
   background-color: #ffffff;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .facetsHeading {
@@ -59,7 +59,7 @@
   margin: 0;
   font-size: 0.9rem;
   color: #555;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .filterDropdownWrapper {
@@ -72,7 +72,7 @@
   border: 1px solid #ccc;
   border-radius: 20px;
   padding: 0.5rem 1rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
@@ -102,7 +102,7 @@
   z-index: 100;
   min-width: 280px;
   margin-top: 0.5rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .facetsDisplay {
@@ -117,14 +117,14 @@
   border-bottom: 1px solid #e0e0e0;
   background-color: #fafafa;
   border-radius: 8px 8px 0 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .facetsSelected {
   font-weight: 500;
   color: #555;
   font-size: 0.9rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .facetsReset {
@@ -135,7 +135,7 @@
   font-size: 0.9rem;
   text-decoration: underline;
   padding: 0.25rem 0.5rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .facetsReset:hover {
@@ -148,7 +148,7 @@
   margin: 0;
   max-height: 300px;
   overflow-y: auto;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .facetsItem {
@@ -168,7 +168,7 @@
   font-size: 0.95rem;
   color: #333;
   position: relative;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .facetCheckbox input[type="checkbox"] {
@@ -197,12 +197,12 @@
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .facetCheckboxTextLabel {
   font-weight: 500;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .facetsPrice {
@@ -211,13 +211,13 @@
   align-items: center;
   gap: 0.5rem;
   flex-wrap: wrap;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .fieldCurrency {
   font-weight: 500;
   color: #555;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .field {
@@ -232,7 +232,7 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 0.9rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .fieldLabel {
@@ -242,20 +242,20 @@
   font-size: 0.8rem;
   color: #888;
   pointer-events: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .sortGroup {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .sortLabel {
   font-weight: 500;
   color: #555;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .productGrid {
@@ -277,13 +277,12 @@
   max-width: 100%;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid #f0f0f0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.3s ease, 
-              border-color 0.3s ease;
+    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .productCard.animateIn {
@@ -330,7 +329,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .productTitle {
@@ -341,7 +340,7 @@
   line-height: 1.4;
   letter-spacing: -0.01em;
   transition: color 0.2s ease;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   cursor: pointer;
 }
 
@@ -357,14 +356,14 @@
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .productPrice::before {
   content: "₹";
   font-size: 0.9em;
   color: #718096;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .productActions {
@@ -388,7 +387,7 @@
   font-size: 0.9rem;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .buyNowBtn:hover {
@@ -413,7 +412,7 @@
   font-size: 0.9rem;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .addToCartBtn:hover {
@@ -447,11 +446,11 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 1.75rem 1.05rem;
   }
-  
+
   .productImageContainer {
     min-height: 196px;
   }
-  
+
   .productImage {
     max-height: 168px;
   }
@@ -461,61 +460,61 @@
   .productGridContainer {
     padding: 0 0.5rem;
   }
-  
+
   .productGridHeader h1 {
     font-size: 1.4rem;
   }
-  
+
   .headerTop {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
   }
-  
+
   .facetsWrapper {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
   }
-  
+
   .sortGroup {
     width: 100%;
     justify-content: flex-start;
   }
-  
+
   .filterDropdownWrapper {
     width: 100%;
   }
-  
+
   .filterDropdownBtn {
     width: 100%;
     justify-content: space-between;
   }
-  
+
   .filterDropdownContainer {
     position: static;
     width: 100%;
     margin-top: 0.5rem;
   }
-  
+
   .productGrid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .productActions {
     flex-direction: column;
   }
-  
+
   .productImageContainer {
     padding: 1.5rem;
     min-height: 182px;
   }
-  
+
   .productImage {
     max-height: 154px;
   }
-  
+
   .productInfo {
     padding: 0.9rem;
   }

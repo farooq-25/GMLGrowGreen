@@ -1,4 +1,3 @@
-/* src/styles/RazorpayMockup.css */
 .payment-page-container {
   display: flex;
   flex-direction: column;
@@ -6,31 +5,37 @@
   justify-content: flex-start;
   min-height: 100vh;
   padding: 4rem 1rem;
-  background-color: #f4f7fa; /* Light, clean app background */
-  font-family: 'Montserrat', sans-serif;
+  background-color: #f4f7fa;
+  font-family: "Montserrat", sans-serif;
   box-sizing: border-box;
 }
 
 .payment-modal {
   width: 100%;
-  max-width: 500px; /* Wider for a cleaner look */
+  max-width: 500px;
   background-color: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Softer shadow */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   animation: fadeIn 0.3s ease-out;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .payment-header {
-  background-color: #f8f9fa; /* Very light header */
+  background-color: #f8f9fa;
   padding: 1.5rem;
   text-align: center;
-  border-bottom: 1px solid #e9ecef; /* Soft border */
+  border-bottom: 1px solid #e9ecef;
 }
 
 .payment-header span {
@@ -49,7 +54,6 @@
   padding: 2rem;
 }
 
-/* Simplified Order Details */
 .order-details-simple {
   text-align: center;
   margin-bottom: 2rem;
@@ -63,13 +67,12 @@
 }
 
 .order-amount {
-  font-size: 2.5rem; /* Make amount the hero */
+  font-size: 2.5rem;
   font-weight: 700;
   color: #2d3748;
   margin: 0.25rem 0;
 }
 
-/* New Tabbed Payment Interface */
 .payment-options-wrapper {
   display: flex;
   border-radius: 8px;
@@ -79,7 +82,7 @@
 }
 
 .payment-options-list {
-  flex: 0 0 160px; /* Fixed width for the tab list */
+  flex: 0 0 160px;
   border-right: 1px solid #e9ecef;
 }
 
@@ -89,7 +92,7 @@
   font-size: 0.95rem;
   color: #444;
   cursor: pointer;
-  border-left: 3px solid transparent; /* This will be the active indicator */
+  border-left: 3px solid transparent;
   transition: all 0.2s ease;
 }
 
@@ -101,7 +104,7 @@
   background-color: #ffffff;
   font-weight: 600;
   color: #313840;
-  border-left-color: #313840; /* Your brand's dark color */
+  border-left-color: #313840;
 }
 
 .payment-options-content {
@@ -117,11 +120,10 @@
   margin-bottom: 1.5rem;
 }
 
-/* Re-styled Pay Button */
 .pay-now-btn {
   width: 100%;
-  padding: 0.875rem 1.5rem; /* Slightly smaller */
-  background: #313840; /* Your brand color */
+  padding: 0.875rem 1.5rem;
+  background: #313840;
   color: #ffffff;
   border: none;
   border-radius: 8px;
@@ -137,7 +139,7 @@
 }
 
 .pay-now-btn:disabled {
-  background-color: #a0aec0; 
+  background-color: #a0aec0;
   cursor: not-allowed;
   transform: none;
 }
@@ -155,9 +157,6 @@
   gap: 0.5rem;
 }
 
-/* === Add these new styles to the end of RazorpayMockup.css === */
-
-/* UPI Styles */
 .upi-options {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -166,19 +165,19 @@
 }
 
 .upi-app-btn {
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0.75rem;
   border-radius: 8px;
   border: 1px solid #ddd;
   background: #fdfdfd;
   cursor: pointer;
   font-weight: 500;
-  font-size: 0.9rem; /* <-- ADD/ADJUST */
-  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-family: "Montserrat", sans-serif;
   transition: all 0.2s ease;
-  color: #333; 
+  color: #333;
 }
 
 .upi-app-btn:hover {
@@ -199,11 +198,9 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 0.95rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
-
-/* Card Form Styles */
 .card-details-form {
   display: flex;
   flex-direction: column;
@@ -220,8 +217,8 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 1rem;
-  font-family: 'Montserrat', sans-serif;
-  box-sizing: border-box; /* Important */
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
 }
 
 .card-row {
@@ -229,7 +226,6 @@
   gap: 1rem;
 }
 
-/* Netbanking Styles */
 .bank-list {
   display: flex;
   flex-direction: column;
@@ -244,7 +240,7 @@
   background: #fdfdfd;
   cursor: pointer;
   font-weight: 500;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   text-align: left;
   transition: all 0.2s ease;
 }

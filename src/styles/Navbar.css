@@ -1,5 +1,3 @@
-/* src/styles/Navbar.css */
-/* === STICKY NAVBAR CONTAINER === */
 .navbar-container {
   position: fixed;
   top: 0;
@@ -10,7 +8,8 @@
   backdrop-filter: blur(10px);
   padding: 0.5rem 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
   transition: all 0.3s ease;
   width: 100%;
 }
@@ -32,7 +31,6 @@
   box-sizing: border-box;
 }
 
-/* === LOGO === */
 .navbar-logo {
   display: flex;
   align-items: center;
@@ -43,19 +41,15 @@
   height: 60px;
   width: auto;
   object-fit: contain;
-  transition: transform 0.3s ease;
+  transition: height 0.3s ease;
+
   margin-left: 13.5vw;
 }
 
 .navbar-container.scrolled .logo-image {
-  height: 70px;
+  height: 50px;
 }
 
-.navbar-logo:hover .logo-image {
-  transform: scale(1.05);
-}
-
-/* === NAV LINKS === */
 .navbar-links {
   display: flex;
   list-style: none;
@@ -69,7 +63,7 @@
   text-decoration: none;
   color: #2d3748;
   font-weight: 600;
-  font-size: 0.90rem;
+  font-size: 0.9rem;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   transition: all 0.3s ease;
@@ -79,7 +73,7 @@
 }
 
 .navbar-links a::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -105,15 +99,12 @@
   width: 100%;
 }
 
-/* === ICONS === */
 .navbar-icons {
   display: flex;
   align-items: center;
   gap: 1.5rem;
   flex-shrink: 0;
   margin-right: 14vw;
-
-
 }
 
 .icon-link {
@@ -121,10 +112,11 @@
   text-decoration: none;
   font-size: 1.3rem;
   transition: all 0.3s ease;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   padding: 0.5rem;
   border-radius: 8px;
+  position: relative;
 }
 
 .icon-link:hover {
@@ -133,40 +125,31 @@
   transform: translateY(-1px);
 }
 
-/* Cart Icon Wrapper */
+.icon-link svg {
+  width: 16px;
+  height: 18px;
+}
+
 .cart-icon-wrapper {
   position: relative;
-  display: flex;
+  display: inline-flex;
   align-items: center;
 }
 
-/* Cart Counter - Only shows when items > 0 */
-.cart-counter {
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  background: linear-gradient(135deg, #10b981, #059669);
+.cart-badge {
+  background-color: #e53e3e;
   color: white;
-  border-radius: 12px;
-  min-width: 20px;
-  height: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 0.65rem;
-  font-weight: 700;
-  border: 2px solid white;
-  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
-  animation: bounceIn 0.3s ease;
+  border-radius: 10px;
+  padding: 1px 6px;
+  margin-left: 0.4px; /* Very small space */
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 1.4;
+  margin-bottom: 11px; /* This will push the badge UP */
+  display: inline-block;
+  vertical-align: middle;
 }
 
-@keyframes bounceIn {
-  0% { transform: scale(0); }
-  50% { transform: scale(1.2); }
-  100% { transform: scale(1); }
-}
-
-/* Mobile Menu Button */
 .mobile-menu-button {
   display: none;
   background: none;
@@ -184,18 +167,18 @@
   background-color: rgba(16, 185, 129, 0.1);
 }
 
-/* Mobile Menu */
 .mobile-menu {
-  position: fixed;
+  position: absolute;
   top: 100%;
   left: 0;
   right: 0;
   background: white;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transform: translateY(-100%);
+  transform: translateY(-10px);
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
+  z-index: 999;
 }
 
 .mobile-menu.open {
@@ -205,22 +188,25 @@
 }
 
 .mobile-menu-content {
-  padding: 2rem;
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0.5rem;
 }
 
 .mobile-link {
   text-decoration: none;
   color: #2d3748;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  padding: 1rem 0;
+  padding: 0.75rem 0;
   border-bottom: 1px solid #e2e8f0;
   transition: all 0.3s ease;
+}
+.mobile-link:last-of-type {
+  border-bottom: none;
 }
 
 .mobile-link:hover,
@@ -232,7 +218,7 @@
   display: flex;
   gap: 1.5rem;
   margin-top: 1rem;
-  padding-top: 1.5rem;
+  padding-top: 1rem;
   border-top: 1px solid #e2e8f0;
 }
 
@@ -250,94 +236,104 @@
   color: #10b981;
 }
 
-/* Mobile Cart Counter - Only shows when items > 0 */
-.mobile-cart-counter {
-  background: linear-gradient(135deg, #10b981, #059669);
-  color: white;
-  border-radius: 10px;
-  min-width: 18px;
-  height: 18px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 0.6rem;
-  font-weight: 700;
-  margin-left: 0.5rem;
+.mobile-icon-link svg {
+  width: 20px;
+  height: 20px;
 }
 
-/* === CENTERED LAYOUT FOR DESKTOP === */
+.mobile-cart-counter {
+  background-color: #e53e3e;
+  color: white;
+  border-radius: 10px;
+  padding: 1px 6px;
+  font-size: 10px;
+  font-weight: bold;
+  margin-left: 6px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 @media (min-width: 769px) {
   .navbar {
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
     gap: 2rem;
   }
-  
+
   .navbar-logo {
     justify-self: start;
   }
-  
+
   .navbar-links {
     justify-self: center;
   }
-  
+
   .navbar-icons {
     justify-self: end;
   }
 }
 
-/* === MOBILE RESPONSIVE === */
 @media (max-width: 768px) {
   .navbar {
     padding: 0 1rem;
     display: flex;
     justify-content: space-between;
   }
-  
+
   .navbar-links {
     display: none;
   }
-  
+
   .logo-image {
-    height: 60px;
-  }
-  
-  .navbar-container.scrolled .logo-image {
     height: 50px;
+    margin-left: 0;
   }
-  
+
+  .navbar-container.scrolled .logo-image {
+    height: 45px;
+  }
+
   .navbar-icons {
-    gap: 1rem;
+    gap: 0.5rem;
+    margin-right: 0;
   }
-  
+
   .mobile-menu-button {
     display: block;
   }
-  
+
   .icon-link {
     font-size: 1.2rem;
+    padding: 0.4rem;
   }
 }
 
-/* === TABLET ADJUSTMENTS === */
 @media (max-width: 1024px) and (min-width: 769px) {
-  .navbar-links {
-    gap: 2rem;
+  .navbar {
+    padding: 0 1.5rem;
   }
-  
+  .navbar-links {
+    gap: 1.5rem;
+  }
+
   .navbar-links a {
     font-size: 0.85rem;
   }
+  .navbar-icons {
+    gap: 1rem;
+  }
 }
 
-/* Add padding to body to account for fixed navbar */
 body {
+  margin: 0;
+}
+
+.App > main {
   padding-top: 80px;
 }
-
 @media (max-width: 768px) {
-  body {
+  .App > main {
     padding-top: 70px;
   }
 }

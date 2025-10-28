@@ -1,15 +1,25 @@
 // src/pages/ContactUs.jsx
-import React, { useRef, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Clock, Users, MessageCircle, CheckCircle, Navigation } from 'lucide-react';
+import React, { useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Clock,
+  Users,
+  MessageCircle,
+  CheckCircle,
+  Navigation,
+} from "lucide-react";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -18,45 +28,46 @@ const ContactUs = () => {
   const formRef = useRef(null);
   const infoRef = useRef(null);
   const mapRef = useRef(null);
-  
+
   const isHeaderInView = useInView(headerRef, { once: true, margin: "-100px" });
   const isFormInView = useInView(formRef, { once: true, margin: "-50px" });
   const isInfoInView = useInView(infoRef, { once: true, margin: "-50px" });
 
   // GML Grow Green coordinates (Vaniyambadi, Tamil Nadu)
   const location = {
-    lat: 12.6810,
-    lng: 78.6180,
-    address: "45, TM Abdul Hameed 5th Street, Shakirabad, Vaniyambadi, Tamil Nadu 635751",
-    googleMapsUrl: "https://maps.google.com/?q=12.6810,78.6180"
+    lat: 12.681,
+    lng: 78.618,
+    address:
+      "45, TM Abdul Hameed 5th Street, Shakirabad, Vaniyambadi, Tamil Nadu 635751",
+    googleMapsUrl: "https://maps.google.com/?q=12.6810,78.6180",
   };
 
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
     setIsSubmitting(false);
     setIsSubmitted(true);
-    
+
     // Reset form after success
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: ''
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
       });
     }, 3000);
   };
@@ -68,39 +79,33 @@ const ContactUs = () => {
       details: [
         "#45, TM Abdul Hameed 5th Street,",
         "Shakirabad, Vaniyambadi,",
-        "Tamil Nadu. Pincode : 635751"
+        "Tamil Nadu. Pincode : 635751",
       ],
-      color: "from-blue-500 to-cyan-500"
+      color: "from-blue-500 to-cyan-500",
     },
     {
       icon: Mail,
       title: "Email Us",
-      details: [
-        "sales@gmlgrowgreen.com",
-        "We'll respond quickly"
-      ],
-      color: "from-green-500 to-emerald-500"
+      details: ["sales@gmlgrowgreen.com", "We'll respond quickly"],
+      color: "from-green-500 to-emerald-500",
     },
     {
       icon: Phone,
       title: "Call Us",
-      details: [
-        "+91-7904161463",
-        "Mon-Sat: 9AM-6PM"
-      ],
-      color: "from-purple-500 to-pink-500"
-    }
+      details: ["+91-7904161463", "Mon-Sat: 9AM-6PM"],
+      color: "from-purple-500 to-pink-500",
+    },
   ];
 
   const stats = [
     { icon: Clock, value: "24h", label: "Response Time" },
     { icon: Users, value: "100%", label: "Customer Support" },
     { icon: MessageCircle, value: "Free", label: "Consultation" },
-    { icon: CheckCircle, value: "Expert", label: "Guidance" }
+    { icon: CheckCircle, value: "Expert", label: "Guidance" },
   ];
 
   const openGoogleMaps = () => {
-    window.open(location.googleMapsUrl, '_blank');
+    window.open(location.googleMapsUrl, "_blank");
   };
 
   return (
@@ -112,7 +117,9 @@ const ContactUs = () => {
             ref={headerRef}
             className="text-center"
             initial={{ opacity: 0, y: 50 }}
-            animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            animate={
+              isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }
+            }
             transition={{ duration: 0.8 }}
           >
             <motion.div
@@ -123,14 +130,15 @@ const ContactUs = () => {
             >
               <MessageCircle className="text-white text-2xl" />
             </motion.div>
-            
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
               Get In <span className="text-green-600">Touch</span>
             </h1>
-            
+
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              We're here to help you grow better. Reach out to our team for expert guidance 
-              on sustainable gardening solutions and premium grow products.
+              We're here to help you grow better. Reach out to our team for
+              expert guidance on sustainable gardening solutions and premium
+              grow products.
             </p>
           </motion.div>
         </div>
@@ -173,7 +181,9 @@ const ContactUs = () => {
               ref={infoRef}
               className="space-y-8"
               initial={{ opacity: 0, x: -50 }}
-              animate={isInfoInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+              animate={
+                isInfoInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }
+              }
               transition={{ duration: 0.8 }}
             >
               <div>
@@ -181,8 +191,9 @@ const ContactUs = () => {
                   Let's Start a Conversation
                 </h2>
                 <p className="text-lg text-gray-600 mb-8">
-                  Whether you're a gardening enthusiast or a commercial grower, 
-                  we're committed to providing you with the best solutions and support.
+                  Whether you're a gardening enthusiast or a commercial grower,
+                  we're committed to providing you with the best solutions and
+                  support.
                 </p>
               </div>
 
@@ -193,10 +204,16 @@ const ContactUs = () => {
                     className="flex items-start space-x-4 p-6 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300"
                     whileHover={{ y: -5 }}
                     initial={{ opacity: 0, y: 30 }}
-                    animate={isInfoInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                    animate={
+                      isInfoInView
+                        ? { opacity: 1, y: 0 }
+                        : { opacity: 0, y: 30 }
+                    }
                     transition={{ duration: 0.6, delay: index * 0.2 }}
                   >
-                    <div className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-r ${item.color} flex items-center justify-center`}>
+                    <div
+                      className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-r ${item.color} flex items-center justify-center`}
+                    >
                       <item.icon className="text-white text-lg" />
                     </div>
                     <div className="flex-1">
@@ -217,7 +234,9 @@ const ContactUs = () => {
               <motion.div
                 className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 border border-green-100"
                 initial={{ opacity: 0, y: 30 }}
-                animate={isInfoInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                animate={
+                  isInfoInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+                }
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
                 <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
@@ -226,8 +245,12 @@ const ContactUs = () => {
                 </h3>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center py-2 border-b border-green-200">
-                    <span className="text-gray-700 font-medium">Monday - Saturday</span>
-                    <span className="text-green-600 font-semibold">9:00 AM - 6:00 PM</span>
+                    <span className="text-gray-700 font-medium">
+                      Monday - Saturday
+                    </span>
+                    <span className="text-green-600 font-semibold">
+                      9:00 AM - 6:00 PM
+                    </span>
                   </div>
                   <div className="flex justify-between items-center py-2">
                     <span className="text-gray-700 font-medium">Sunday</span>
@@ -241,7 +264,9 @@ const ContactUs = () => {
             <motion.div
               ref={formRef}
               initial={{ opacity: 0, x: 50 }}
-              animate={isFormInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+              animate={
+                isFormInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }
+              }
               transition={{ duration: 0.8 }}
             >
               <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8">
@@ -250,7 +275,8 @@ const ContactUs = () => {
                     Send Us a Message
                   </h2>
                   <p className="text-gray-600">
-                    Fill out the form below and we'll get back to you within 24 hours.
+                    Fill out the form below and we'll get back to you within 24
+                    hours.
                   </p>
                 </div>
 
@@ -274,7 +300,10 @@ const ContactUs = () => {
                   <form onSubmit={handleFormSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                        <label
+                          htmlFor="name"
+                          className="block text-sm font-medium text-gray-700 mb-2"
+                        >
                           Full Name *
                         </label>
                         <input
@@ -289,7 +318,10 @@ const ContactUs = () => {
                         />
                       </div>
                       <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                        <label
+                          htmlFor="email"
+                          className="block text-sm font-medium text-gray-700 mb-2"
+                        >
                           Email Address *
                         </label>
                         <input
@@ -307,7 +339,10 @@ const ContactUs = () => {
 
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                        <label
+                          htmlFor="phone"
+                          className="block text-sm font-medium text-gray-700 mb-2"
+                        >
                           Phone Number
                         </label>
                         <input
@@ -321,7 +356,10 @@ const ContactUs = () => {
                         />
                       </div>
                       <div>
-                        <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                        <label
+                          htmlFor="subject"
+                          className="block text-sm font-medium text-gray-700 mb-2"
+                        >
                           Subject *
                         </label>
                         <select
@@ -333,8 +371,12 @@ const ContactUs = () => {
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                         >
                           <option value="">Select a subject</option>
-                          <option value="product-inquiry">Product Inquiry</option>
-                          <option value="technical-support">Technical Support</option>
+                          <option value="product-inquiry">
+                            Product Inquiry
+                          </option>
+                          <option value="technical-support">
+                            Technical Support
+                          </option>
                           <option value="bulk-order">Bulk Order</option>
                           <option value="partnership">Partnership</option>
                           <option value="other">Other</option>
@@ -343,7 +385,10 @@ const ContactUs = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label
+                        htmlFor="message"
+                        className="block text-sm font-medium text-gray-700 mb-2"
+                      >
                         Message *
                       </label>
                       <textarea
@@ -399,10 +444,11 @@ const ContactUs = () => {
               Visit Our Location
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Come see us at our facility in Vaniyambadi. We'd love to show you our products and discuss your gardening needs.
+              Come see us at our facility in Vaniyambadi. We'd love to show you
+              our products and discuss your gardening needs.
             </p>
           </motion.div>
-          
+
           <motion.div
             className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden"
             initial={{ opacity: 0, y: 30 }}
@@ -423,7 +469,7 @@ const ContactUs = () => {
                 title="GML Grow Green Location"
                 className="absolute inset-0"
               />
-              
+
               {/* Map Overlay Info */}
               <div className="absolute bottom-4 left-4 right-4 bg-white rounded-lg shadow-lg p-4 max-w-sm">
                 <div className="flex items-start space-x-3">
@@ -431,7 +477,9 @@ const ContactUs = () => {
                     <MapPin className="text-white" size={20} />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-semibold text-gray-900 mb-1">GML Grow Green</h3>
+                    <h3 className="font-semibold text-gray-900 mb-1">
+                      GML Grow Green
+                    </h3>
                     <p className="text-sm text-gray-600 mb-2">
                       {location.address}
                     </p>
@@ -455,31 +503,36 @@ const ContactUs = () => {
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 text-blue-600 mb-3">
                   <MapPin size={24} />
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-1">Our Address</h4>
+                <h4 className="font-semibold text-gray-900 mb-1">
+                  Our Address
+                </h4>
                 <p className="text-sm text-gray-600">
-                  #45, TM Abdul Hameed 5th Street,<br />
+                  #45, TM Abdul Hameed 5th Street,
+                  <br />
                   Shakirabad, Vaniyambadi
                 </p>
               </div>
-              
+
               <div className="text-center">
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-green-100 text-green-600 mb-3">
                   <Clock size={24} />
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-1">Open Hours</h4>
                 <p className="text-sm text-gray-600">
-                  Mon-Sat: 9AM-6PM<br />
+                  Mon-Sat: 9AM-6PM
+                  <br />
                   Sunday: Closed
                 </p>
               </div>
-              
+
               <div className="text-center">
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-purple-100 text-purple-600 mb-3">
                   <Phone size={24} />
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-1">Call Ahead</h4>
                 <p className="text-sm text-gray-600">
-                  +91-7904161463<br />
+                  +91-7904161463
+                  <br />
                   For appointments
                 </p>
               </div>
