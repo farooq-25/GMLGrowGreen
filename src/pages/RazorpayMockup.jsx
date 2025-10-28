@@ -1,8 +1,7 @@
-// src/pages/RazorpayMockup.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Stepper from "../components/Stepper";
-import { Lock } from "lucide-react";
+import { Lock, ChevronDown, ChevronUp } from "lucide-react";
 import "../styles/RazorpayMockup.css";
 import { SiGooglepay, SiApplepay, SiPaytm } from "react-icons/si";
 import AnimatedPayButton from "../components/AnimatedPayButton";
@@ -11,6 +10,7 @@ import PaymentProcessingAnimation from "../components/PaymentProcessingAnimation
 const RazorpayMockup = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("upi");
+  const [showMobileMethods, setShowMobileMethods] = useState(false);
   const navigate = useNavigate();
 
   const handlePayment = () => {
@@ -21,14 +21,26 @@ const RazorpayMockup = () => {
     }, 2000);
   };
 
+  const paymentMethods = [
+    { id: "upi", label: "UPI" },
+    { id: "card", label: "Credit / Debit Card" },
+    { id: "netbanking", label: "Netbanking" },
+  ];
+
+  const upiApps = [
+    { name: "Google Pay", icon: <SiGooglepay size={40} /> },
+    { name: "Paytm", icon: <SiPaytm size={40} /> },
+    { name: "PhonePe", icon: <span className="upi-app-text" style={{fontSize:"12px"}}>PhonePe</span> },
+    { name: "Apple Pay", icon: <SiApplepay size={40} /> },
+  ];
+
   return (
     <div className="payment-page-container">
       <Stepper activeStep={2} />
-      {/* Conditional Rendering: Show Animation or Payment Form */}
+
       {isLoading ? (
-        <PaymentProcessingAnimation /> // Show the animation component when loading
+        <PaymentProcessingAnimation />
       ) : (
-        // Otherwise, show the payment modal
         <div className="payment-modal">
           <div className="payment-header">
             <span>Payment for</span>
@@ -41,72 +53,101 @@ const RazorpayMockup = () => {
               <p className="order-amount">₹2,499.00</p>
             </div>
 
+            {/* Mobile Payment Method Selector */}
+            <div className="mobile-payment-selector">
+              <button
+                className="mobile-method-toggle"
+                onClick={() => setShowMobileMethods(!showMobileMethods)}
+              >
+                <span>
+                  {paymentMethods.find((m) => m.id === paymentMethod)?.label}
+                </span>
+                {showMobileMethods ? (
+                  <ChevronUp size={18} />
+                ) : (
+                  <ChevronDown size={18} />
+                )}
+              </button>
+
+              {showMobileMethods && (
+                <div className="mobile-methods-dropdown">
+                  {paymentMethods.map((method) => (
+                    <button
+                      key={method.id}
+                      className={`mobile-method-option ${
+                        paymentMethod === method.id ? "active" : ""
+                      }`}
+                      onClick={() => {
+                        setPaymentMethod(method.id);
+                        setShowMobileMethods(false);
+                      }}
+                    >
+                      {method.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <div className="payment-options-wrapper">
+              {/* Desktop Payment Methods Sidebar */}
               <div className="payment-options-list">
-                <div
-                  className={`payment-method ${
-                    paymentMethod === "upi" ? "active" : ""
-                  }`}
-                  onClick={() => setPaymentMethod("upi")}
-                >
-                  UPI
-                </div>
-                <div
-                  className={`payment-method ${
-                    paymentMethod === "card" ? "active" : ""
-                  }`}
-                  onClick={() => setPaymentMethod("card")}
-                >
-                  Credit / Debit Card
-                </div>
-                <div
-                  className={`payment-method ${
-                    paymentMethod === "netbanking" ? "active" : ""
-                  }`}
-                  onClick={() => setPaymentMethod("netbanking")}
-                >
-                  Netbanking
-                </div>
+                {paymentMethods.map((method) => (
+                  <div
+                    key={method.id}
+                    className={`payment-method ${
+                      paymentMethod === method.id ? "active" : ""
+                    }`}
+                    onClick={() => setPaymentMethod(method.id)}
+                  >
+                    {method.label}
+                  </div>
+                ))}
               </div>
 
               <div className="payment-options-content">
-                {/* === UPI Content === */}
+                {/* UPI Content */}
+                {/* UPI Content */}
                 {paymentMethod === "upi" && (
                   <div className="payment-content-body">
                     <p>Select an app or enter your UPI ID</p>
-                    <div className="upi-options">
-                      <button className="upi-app-btn">
-                        <SiGooglepay size={50} /> {/* Adjusted size */}
-                      </button>
-                      <button className="upi-app-btn">
-                        <SiPaytm size={50} /> {/* Adjusted size */}
-                      </button>
-                      <button className="upi-app-btn">PhonePe</button>
-                      <button className="upi-app-btn">
-                        <SiApplepay size={50} /> {/* Adjusted size */}
-                      </button>
-                    </div>
-                    <div className="upi-input-group">
-                      <input
-                        type="text"
-                        placeholder="yourname@upi"
-                        className="upi-input"
-                      />
-                      {/* Use AnimatedPayButton */}
-                      <AnimatedPayButton
-                        onClick={handlePayment}
-                        disabled={isLoading}
-                      >
-                        {isLoading ? "Verifying..." : "Pay"}
-                      </AnimatedPayButton>
+
+                    <div className="upi-container">
+                      <div className="upi-apps-grid">
+                        {upiApps.map((app, index) => (
+                          <button key={index} className="upi-app-btn">
+                            {app.icon}
+                          </button>
+                        ))}
+                      </div>
+
+                      {/* UPI Input Section - Now with input on top */}
+                      <div className="upi-input-section">
+                        <div className="upi-input-group">
+                          <label className="upi-input-label">
+                            Enter UPI ID
+                          </label>
+                          <input
+                            type="text"
+                            placeholder="yourname@upi"
+                            className="upi-input"
+                          />
+                        </div>
+                        <AnimatedPayButton
+                          onClick={handlePayment}
+                          disabled={isLoading}
+                          className="upi-pay-button"
+                        >
+                          {isLoading ? "Verifying..." : "Pay ₹2,499.00"}
+                        </AnimatedPayButton>
+                      </div>
                     </div>
                   </div>
                 )}
-
-                {/* === Card Content === */}
+                {/* Card Content */}
                 {paymentMethod === "card" && (
                   <div className="payment-content-body">
-                    <p>Enter your card details.</p>
+                    <p>Enter your card details</p>
                     <div className="card-details-form">
                       <div className="form-group">
                         <input
@@ -138,7 +179,6 @@ const RazorpayMockup = () => {
                           />
                         </div>
                       </div>
-                      {/* Use AnimatedPayButton */}
                       <AnimatedPayButton
                         onClick={handlePayment}
                         disabled={isLoading}
@@ -149,7 +189,7 @@ const RazorpayMockup = () => {
                   </div>
                 )}
 
-                {/* === Netbanking Content === */}
+                {/* Netbanking Content */}
                 {paymentMethod === "netbanking" && (
                   <div className="payment-content-body">
                     <p>Select from popular banks</p>
@@ -160,7 +200,6 @@ const RazorpayMockup = () => {
                       <button className="bank-btn">Axis Bank</button>
                       <button className="bank-btn">Kotak Bank</button>
                     </div>
-                    {/* Use AnimatedPayButton */}
                     <AnimatedPayButton
                       onClick={handlePayment}
                       disabled={isLoading}
@@ -178,8 +217,7 @@ const RazorpayMockup = () => {
             <span>This is a secure, encrypted payment.</span>
           </div>
         </div>
-      )}{" "}
-      {/* End of conditional rendering */}
+      )}
     </div>
   );
 };
