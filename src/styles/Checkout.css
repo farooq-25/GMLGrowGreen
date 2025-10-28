@@ -1,0 +1,109 @@
+/* src/styles/Checkout.css */
+.checkout-container {
+  display: flex;
+  flex-direction: column; /* <-- CHANGED */
+  justify-content: flex-start; /* <-- CHANGED */
+  align-items: center; /* <-- CHANGED */
+  gap: 1rem; /* <-- ADDED */
+  padding: 4rem 1rem;
+  background-color: #f9f9f9;
+  min-height: 80vh;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.checkout-box {
+  width: 100%;
+  max-width: 700px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+  padding: 2.5rem;
+}
+
+.checkout-box h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.checkout-box p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.checkout-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.checkout-form .form-group-row {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.checkout-form .form-group-row .form-group {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.checkout-form label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+.checkout-form input[type="text"],
+.checkout-form input[type="email"],
+.checkout-form input[type="tel"] {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box; 
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.checkout-form input:focus {
+  outline: none;
+  border-color: #313840;
+  box-shadow: 0 0 0 2px rgba(49, 56, 64, 0.1);
+}
+
+.proceed-btn {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: #313840;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.proceed-btn:hover {
+  background: #4a5568;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .checkout-form .form-group-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .checkout-box {
+    padding: 2rem 1.5rem;
+  }
+  .checkout-box h2 {
+    font-size: 1.75rem;
+  }
+}

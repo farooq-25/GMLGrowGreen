@@ -1,0 +1,260 @@
+/* src/styles/RazorpayMockup.css */
+.payment-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 4rem 1rem;
+  background-color: #f4f7fa; /* Light, clean app background */
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+}
+
+.payment-modal {
+  width: 100%;
+  max-width: 500px; /* Wider for a cleaner look */
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Softer shadow */
+  overflow: hidden;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.payment-header {
+  background-color: #f8f9fa; /* Very light header */
+  padding: 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid #e9ecef; /* Soft border */
+}
+
+.payment-header span {
+  font-size: 0.9rem;
+  color: #667;
+}
+.payment-header strong {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-top: 4px;
+}
+
+.payment-body {
+  padding: 2rem;
+}
+
+/* Simplified Order Details */
+.order-details-simple {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.order-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #555;
+  margin: 0;
+}
+
+.order-amount {
+  font-size: 2.5rem; /* Make amount the hero */
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0.25rem 0;
+}
+
+/* New Tabbed Payment Interface */
+.payment-options-wrapper {
+  display: flex;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  background-color: #f8f9fa;
+  min-height: 200px;
+}
+
+.payment-options-list {
+  flex: 0 0 160px; /* Fixed width for the tab list */
+  border-right: 1px solid #e9ecef;
+}
+
+.payment-method {
+  padding: 1rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #444;
+  cursor: pointer;
+  border-left: 3px solid transparent; /* This will be the active indicator */
+  transition: all 0.2s ease;
+}
+
+.payment-method:hover {
+  background-color: #f1f3f5;
+}
+
+.payment-method.active {
+  background-color: #ffffff;
+  font-weight: 600;
+  color: #313840;
+  border-left-color: #313840; /* Your brand's dark color */
+}
+
+.payment-options-content {
+  flex-grow: 1;
+  background-color: #ffffff;
+  padding: 1.5rem;
+}
+
+.payment-content-body p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+/* Re-styled Pay Button */
+.pay-now-btn {
+  width: 100%;
+  padding: 0.875rem 1.5rem; /* Slightly smaller */
+  background: #313840; /* Your brand color */
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pay-now-btn:hover {
+  background-color: #4a5568;
+  transform: translateY(-2px);
+}
+
+.pay-now-btn:disabled {
+  background-color: #a0aec0; 
+  cursor: not-allowed;
+  transform: none;
+}
+
+.payment-footer {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #777;
+  border-top: 1px solid #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* === Add these new styles to the end of RazorpayMockup.css === */
+
+/* UPI Styles */
+.upi-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.upi-app-btn {
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #fdfdfd;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem; /* <-- ADD/ADJUST */
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.2s ease;
+  color: #333; 
+}
+
+.upi-app-btn:hover {
+  background: #f7f7f7;
+  border-color: #ccc;
+}
+
+.upi-input-group {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.upi-input {
+  flex-grow: 1;
+  padding: 0.75rem 1rem;
+  min-width: 150px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+/* Card Form Styles */
+.card-details-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card-details-form .form-group {
+  width: 100%;
+}
+
+.card-input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box; /* Important */
+}
+
+.card-row {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Netbanking Styles */
+.bank-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.bank-btn {
+  padding: 0.875rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #fdfdfd;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.bank-btn:hover {
+  background: #f7f7f7;
+  border-color: #ccc;
+}
+
+.card-details-form .pay-btn,
+.payment-content-body > .pay-btn {
+  width: 100%;
+}

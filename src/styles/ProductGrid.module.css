@@ -1,0 +1,529 @@
+/* ProductGrid.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+.productGridContainer {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.productGridHeader {
+  margin-bottom: 0.2rem;
+  text-align: left;
+}
+
+.headerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.breadcrumbs {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.productGridHeader h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.facetsWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  color: #555;
+  background-color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.facetsHeading {
+  font-weight: 500;
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.filterDropdownWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.filterDropdownBtn {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem 0.7rem;
+  transition: all 0.2s;
+  min-width: 84px;
+  justify-content: space-between;
+  color: #333;
+}
+
+.filterDropdownBtn:hover,
+.filterDropdownBtn.active {
+  background-color: #f9f9f9;
+  border-color: #888;
+}
+
+.filterDropdownContainer {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  min-width: 280px;
+  margin-top: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.facetsDisplay {
+  padding: 0;
+}
+
+.facetsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #fafafa;
+  border-radius: 8px 8px 0 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.facetsSelected {
+  font-weight: 500;
+  color: #555;
+  font-size: 0.9rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.facetsReset {
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  padding: 0.25rem 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.facetsReset:hover {
+  color: #333;
+}
+
+.facetsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px;
+  overflow-y: auto;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.facetsItem {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.facetsItem:last-child {
+  border-bottom: none;
+}
+
+.facetCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #333;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.facetCheckbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.facetCheckbox svg:first-of-type {
+  flex-shrink: 0;
+}
+
+.facetCheckbox input[type="checkbox"]:checked + svg + .iconCheckmark {
+  opacity: 1;
+}
+
+.iconCheckmark {
+  position: absolute;
+  left: 1.65rem;
+  opacity: 0;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+}
+
+.facetCheckboxText {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.facetCheckboxTextLabel {
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.facetsPrice {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.fieldCurrency {
+  font-weight: 500;
+  color: #555;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.field {
+  position: relative;
+  flex: 1;
+  min-width: 100px;
+}
+
+.fieldInput {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.fieldLabel {
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+  font-size: 0.8rem;
+  color: #888;
+  pointer-events: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.sortGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.sortLabel {
+  font-weight: 500;
+  color: #555;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.1rem 1.4rem;
+  width: 100%;
+  row-gap: 2.1rem;
+}
+
+.productCard {
+  background: #ffffff;
+  border-radius: 11px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f0f0f0;
+  font-family: 'Montserrat', sans-serif;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s ease, 
+              border-color 0.3s ease;
+}
+
+.productCard.animateIn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.productCard.animateIn:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  border-color: #e0e0e0;
+}
+
+.productImageContainer {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 1.05rem;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.productImage {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  max-height: 196px;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.productCard:hover .productImage {
+  transform: scale(1.05);
+}
+
+.productInfo {
+  background-color: transparent;
+  padding: 1.05rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.productTitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+}
+
+.productTitle:hover {
+  color: #313840;
+}
+
+.productPrice {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.productPrice::before {
+  content: "₹";
+  font-size: 0.9em;
+  color: #718096;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.productActions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.buyNowBtn {
+  padding: 0.875rem 1.25rem;
+  background: #313840;
+  color: #ffffff;
+  border: 1.5px solid #313840;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  flex: 1;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.buyNowBtn:hover {
+  background: #ffffff;
+  color: #313840;
+  border: 1.5px solid #313840;
+  transform: translateY(-2px);
+}
+
+.addToCartBtn {
+  padding: 0.875rem 1.25rem;
+  margin-right: 3.9px;
+  background: #ffffff;
+  color: #313840;
+  border: 1.5px solid #313840;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  flex: 1;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.addToCartBtn:hover {
+  background: #313840;
+  color: #ffffff;
+  border: 1.5px solid #313840;
+  transform: translateY(-2px);
+}
+
+.facetsWrap {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.visuallyHidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 717px) {
+  .productGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem 1.05rem;
+  }
+  
+  .productImageContainer {
+    min-height: 196px;
+  }
+  
+  .productImage {
+    max-height: 168px;
+  }
+}
+
+@media (max-width: 538px) {
+  .productGridContainer {
+    padding: 0 0.5rem;
+  }
+  
+  .productGridHeader h1 {
+    font-size: 1.4rem;
+  }
+  
+  .headerTop {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .facetsWrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .sortGroup {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  .filterDropdownWrapper {
+    width: 100%;
+  }
+  
+  .filterDropdownBtn {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .filterDropdownContainer {
+    position: static;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  
+  .productGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .productActions {
+    flex-direction: column;
+  }
+  
+  .productImageContainer {
+    padding: 1.5rem;
+    min-height: 182px;
+  }
+  
+  .productImage {
+    max-height: 154px;
+  }
+  
+  .productInfo {
+    padding: 0.9rem;
+  }
+}
+
+@media (min-width: 718px) {
+  .productGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.1rem 1.4rem;
+  }
+}

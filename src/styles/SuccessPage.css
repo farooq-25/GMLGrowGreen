@@ -1,0 +1,92 @@
+/* src/styles/SuccessPage.css */
+.success-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Aligns stepper to top */
+  padding: 4rem 1rem;
+  background-color: #f4f7fa; /* Light background */
+  min-height: 100vh; /* Full height */
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+}
+
+.success-content-box {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+  padding: 3rem;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  margin-top: 2rem; /* Space below stepper */
+  display: flex; /* Use flexbox for centering items */
+  flex-direction: column;
+  align-items: center;
+  animation: fadeInSlideUp 0.5s ease-out forwards;
+}
+
+.success-checkmark-icon {
+  color: #28a745; /* Success green */
+  margin-bottom: 1.5rem;
+  animation: checkmarkPop 0.6s ease-out forwards;
+}
+
+.success-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.success-message {
+  font-size: 1.1rem;
+  color: #555;
+  margin-top: 0;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.back-home-button {
+  padding: 0.875rem 2rem;
+  background: #313840; /* Your primary dark color */
+  color: #ffffff;
+  border: none; /* Remove border */
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  text-transform: uppercase; /* Optional: Makes it look more like a button */
+  letter-spacing: 0.5px; /* Optional */
+}
+
+.back-home-button:hover {
+  background: #4a5568; /* Slightly lighter dark color */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add hover shadow */
+}
+@keyframes checkmarkPop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
